@@ -1,3 +1,16 @@
+# amregtest 1.0.10
+
+## New features
+
+* Now detecting and reporting detritus files that are leaked to TEMP during a test.
+
+* All detected detritus files are now deleted after the test.
+
+* amregtest is now tolerating that multiple spaces in allelematch 'stop' messages are compressed to single spaces.
+
+* Latest 'allelematch' version tested so far: 2.5.5
+
+
 # amregtest 1.0.3
 
 ## New features
