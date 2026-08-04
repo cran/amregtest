@@ -25,11 +25,11 @@ test_that("Loop the Loop", {
     "LOC3a"         = c(51:53, -99),
     "LOC3b"         = c(61:64)
   )
-  data("amExample1")
-  data("amExample2") #; amExample2 = amExample2[c(1:20),] # Just keep the first 20 rows to save speed and disk
-  data("amExample3") #; amExample3 = amExample3[c(1:20),] # Just keep the first 20 rows to save speed and disk
-  data("amExample4") #; amExample4 = amExample4[c(1:20),] # Just keep the first 20 rows to save speed and disk
-  data("amExample5") #; amExample5 = amExample5[c(1:20),] # Just keep the first 20 rows to save speed and disk
+  amExample1 <- ro$amExample1
+  amExample2 <- ro$amExample2
+  amExample3 <- ro$amExample3
+  amExample4 <- ro$amExample4
+  amExample5 <- ro$amExample5
 
   amdataMini     = amDataset(miniExample)
   amdataExample1 = amDataset(amExample1, indexColumn="sampleId", metaDataColumn="knownIndividual")
@@ -59,7 +59,7 @@ test_that("Loop the Loop", {
         ret = c(paste("\n  Error    : ", e$message, "\n  Rejected : ", cmdstr, "\n"))
 
         # Differ between expected and unexpected errors:
-        if (!grepl("no clusters formed.", e$message, perl=TRUE)) {
+        if (!grepl("no clusters formed", e$message, perl=TRUE)) {
           # Some unexpected error happened. Print it to the screen for easier debugging.
           message("\n  ", ret, "\n  error class = ", format(class(e)), sep="")
 

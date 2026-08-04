@@ -4,16 +4,21 @@
 \alias{artRun}
 \title{Runs the regression test}
 \usage{
-artRun(filter = "", verbose = TRUE)
+artRun(filter = "", verbose = TRUE, keep = FALSE)
 }
 \arguments{
 \item{filter}{If specified, only tests with names matching this perl regular
 expression will be executed. Character vector of length 1. See also \link{artList}}
 
 \item{verbose}{logical. If TRUE (the default), prints version of tested allelematch to stdout}
+
+\item{keep}{logical. If FALSE (the default), deletes the temporary files
+created by the tests. This includes .htm and .png files
+for browsers and Viewer.
+If TRUE, keeps the temporary files for inspection.}
 }
 \value{
-A list (invisibly) containing data about the test results as returned by \link[testthat:test_package]{testthat::test_package}
+A list (invisibly) containing data about the test results as returned by \link[testthat]{test_package}
 }
 \description{
 Runs regression tests on package \link[allelematch:allelematch-package]{allelematch} to make sure it is backwards compatible.\cr
@@ -48,5 +53,5 @@ artRun(filter="allelematch_1-amDataset$")
 
 }
 \seealso{
-\link{artVersion} and \link{artList}
+\link{artVersion}, \link{artList}, \link{artInstallCranAllelematch} and \link{amregtest}
 }

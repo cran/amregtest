@@ -6,7 +6,7 @@ test_that("We are running the 3rd edition of testthat", code = {
 
 HTML=isTRUE(Sys.getenv("ART_GENERATE_HTML") == "TRUE") # Set with Sys.setenv(ART_GENERATE_HTML = "TRUE")
 
-overwrite = FALSE # Use TRUE when creating new tests that need new *_expected data.
+# overwrite = FALSE # Use TRUE when creating new tests that need new *_expected data.
 
 test_that("amExample3 results from pg 10 in allelematchSuppDoc.pdf are 2.5.3 compatible", code = {
 
@@ -14,7 +14,7 @@ test_that("amExample3 results from pg 10 in allelematchSuppDoc.pdf are 2.5.3 com
     withr::local_options(width=200) # Allow longer lines for the summaries:
 
     # Follow the instructions from allelematchSuppDoc.pdf, pg 10:
-    data("amExample3")
+    amExample3 <- ro$amExample3
     example3 <- amDataset(amExample3, indexColumn="sampleId",
       metaDataColumn="knownIndividual", missingCode="-99")
     {

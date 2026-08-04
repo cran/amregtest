@@ -34,7 +34,7 @@ NULL
 #' Example 1 High quality data set
 #'
 #' This is sample data copied from [amExampleData][allelematch::amExampleData] in version 5.2.1
-#' of package [allelematch][allelematch::allelematch-package]. We use this data to test 'allelematch' backwards compatibility.
+#' of package [allelematch][allelematch::allelematch-package].
 #'
 #' The data in this example is simulated to represent a high quality data set that might
 #' result from a laboratory protocol where samples were run multiple times to confirm their

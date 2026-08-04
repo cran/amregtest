@@ -11,7 +11,7 @@ test_that("Print", {
     "LOC2a"         = c(31:33, -99),
     "LOC2b"         = c(41:44)
   )
-  data("amExample5") ; amExample5 = amExample5[c(1:20),] # Just keep the first 20 rows to save speed and disk
+  amExample5 <- ro$amExample5[1:20, ] # Just keep the first 20 rows to save speed and disk
 
   objMini     = amCluster(amDataset(miniExample))
   objExample5 = amCluster(amDataset(amExample5, indexColumn="sampleId", ignoreColumn=c("samplingData", "gender")))
@@ -22,7 +22,7 @@ test_that("Print", {
   for (obj in c("objMini", "objExample5", "objExample5b")) {
 
     # Write the name of the obj to the _snap file:
-    expect_snapshot(paste("About to exercise", obj), variant=amvariant)
+    expect_snapshot_output(cat("About to exercise", obj), variant=amvariant)
 
     # summary.amCluster should have the same output as before
     expect_snapshot(summary.amCluster(get(obj)), variant=amvariant)
@@ -35,20 +35,8 @@ test_that("Print", {
 
     # amHTML.amCluster should have the same output as before
     tmp = tempfile(paste(obj, "_", sep=""), fileext=".html")
-    expect_snapshot(amHTML.amCluster( get(obj), htmlFile=tmp),
-                    variant=amvariant)
-    expect_snapshot(
-      cat(
-        sub("summary generated: </b><em>.+?</em>",
-            "summary generated: </b><em>(date)</em>",
-            gsub("(\\t| )+?(\\n|$)","\\2",
-                 readLines(tmp, warn=FALSE),
-                 perl=TRUE),
-            perl=TRUE),
-        sep="\n"),
-      variant=amvariant
-    )
-    file.remove(tmp)
+    expect_snapshot(amHTML.amCluster( get(obj), htmlFile=tmp), variant=amvariant)
+    snapshot_scrubHtmlFile(tmp, variant=amvariant)
   }
 
   # Test usingTmpFile:

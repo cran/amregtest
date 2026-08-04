@@ -18,6 +18,9 @@ Displays version of this package (\link{amregtest}) and of \link[allelematch:all
 together with build timestamps.\cr
 \cr
 The version is specified in the file DESCRIPTION, tag "Version: ".
+
+If allelematch was installed with \link{artInstallCranAllelematch} it will show
+a build timestamp from the installation, not from when it was published.
 }
 \examples{
 # See what version of packages 'allelematch' and 'amregtest'
@@ -37,5 +40,5 @@ artRun(filter="allelematch_1-amDataset$")
 
 }
 \seealso{
-\link{artList}, \link{artRun} and \link{amregtest}
+\link{artList}, \link{artRun}, \link{artInstallCranAllelematch} and \link{amregtest}
 }
